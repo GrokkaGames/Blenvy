@@ -86,10 +86,10 @@ pub(crate) fn inject_materials(
             }
 
             if let Some(material) = material_found {
-                info!("Step 6: injecting/replacing materials");
+                debug!("Step 6: injecting/replacing materials");
                 for (child_index, child) in children.iter().enumerate() {
                     if child_index == material_index && with_materials_and_meshes.contains(*child) {
-                        info!(
+                        debug!(
                             "injecting material {}, path: {:?}",
                             material_info.name,
                             material_info.path.clone()

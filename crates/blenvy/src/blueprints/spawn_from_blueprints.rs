@@ -144,7 +144,7 @@ pub(super) fn blueprints_prepare_metadata_file_for_spawn(
     ) in blueprint_instances_to_spawn.iter()
     {
         // get path to assets / metadata file
-        info!(
+        debug!(
             "Step 1: spawn request detected: loading metadata file for {:?}",
             blueprint_info
         );
@@ -263,7 +263,7 @@ pub(super) fn blueprints_prepare_spawn(
     blueprint_metas: Res<Assets<BlueprintPreloadAssets>>,
 ) {
     for (entity, blueprint_info, blueprint_meta_handle) in blueprint_instances_to_spawn.iter() {
-        info!(
+        debug!(
             "Step 2: metadata loaded: loading assets for {:?}",
             blueprint_info,
         );
@@ -460,7 +460,7 @@ pub(crate) fn blueprints_assets_loaded(
             blueprint_info.name, name, entity, original_parent
         );*/
 
-        info!(
+        debug!(
             "Step 3: all assets loaded, attempting to spawn blueprint scene {:?} for entity {:?}, id: {}",
             blueprint_info, name, entity
         );
@@ -570,7 +570,7 @@ pub(crate) fn blueprints_scenes_spawned(
     all_names: Query<&Name>,
 ) {
     for (entity, name, children, track_root) in spawned_blueprint_scene_instances.iter() {
-        info!(
+        debug!(
             "Step 4: Done spawning blueprint scene for entity named {:?} (track root: {:?})",
             name, track_root
         );
@@ -684,7 +684,7 @@ pub(crate) fn blueprints_cleanup_spawned_scene(
     all_names: Query<&Name>,
 ) {
     for (original, children, original_children, name, animations) in blueprint_scenes.iter() {
-        info!("Step 5: Cleaning up spawned scene {:?}", name);
+        debug!("Step 5: Cleaning up spawned scene {:?}", name);
 
         if children.len() == 0 {
             // TODO: investigate, Honestly not sure if this issue from Bevy 0.12 is still present at all anymore
@@ -835,7 +835,7 @@ pub(crate) fn blueprints_finalize_instances(
     for (entity, name, blueprint_info, parent_blueprint, hide_until_ready, original_visibility) in
         blueprint_instances.iter()
     {
-        info!("Step 8: Finalizing blueprint instance {:?}", name);
+        debug!("Step 8: Finalizing blueprint instance {:?}", name);
         commands
             .entity(entity)
             .remove::<BlueprintMetaLoaded>()

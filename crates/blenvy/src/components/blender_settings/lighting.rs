@@ -155,7 +155,7 @@ fn process_colorgrading(
 ) {
     for entity in cameras.iter() {
         for (scene_id, blender_colorgrading) in blender_colorgradings.iter() {
-            info!("COLOR GRADING");
+            debug!("COLOR GRADING");
             commands.entity(entity).insert(ColorGrading {
                 global: ColorGradingGlobal {
                     exposure: blender_colorgrading.exposure,
