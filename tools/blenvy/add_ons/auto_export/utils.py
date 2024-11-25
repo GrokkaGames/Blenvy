@@ -54,6 +54,7 @@ def write_level_metadata_file(scene, blueprints_data, settings):
         #if asset["internal"] :
         formated_asset = f'\n    ("{asset["name"]}", File ( path: "{asset["path"]}" )),'
         formated_assets.append(formated_asset)
+    formated_assets.sort()
     
     metadata_file_path_full = os.path.join(levels_path_full, scene.name+".meta.ron")
     os.makedirs(os.path.dirname(metadata_file_path_full), exist_ok=True)
@@ -74,7 +75,7 @@ def write_blueprint_metadata_file(blueprint, blueprints_data, settings):
         #if asset["internal"] :
         formated_asset = f'\n    ("{asset["name"]}", File ( path: "{asset["path"]}" )),'
         formated_assets.append(formated_asset)
-
+    formated_assets.sort()
 
     metadata_file_path_full = os.path.join(blueprints_path_full, blueprint.name+".meta.ron")
     os.makedirs(os.path.dirname(metadata_file_path_full), exist_ok=True)
