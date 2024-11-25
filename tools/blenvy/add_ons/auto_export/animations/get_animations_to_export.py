@@ -55,8 +55,8 @@ def get_animations_to_export(changed_animations, changed_export_parameters, blue
         if len(object.modifiers) > 0:
             for modifier in object.modifiers:
                 if modifier.type == 'ARMATURE':
-                    ref = modifier.object.name
-                    armature_name = bpy.data.objects[ref].data.name
+                    armature_parent = object.find_armature()
+                    armature_name = armature_parent.data.name
                     armature = bpy.data.armatures[armature_name]
                     if not armature.name in objects_per_armature :
                         objects_per_armature[armature.name] = []
