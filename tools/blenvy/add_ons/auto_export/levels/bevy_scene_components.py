@@ -2,12 +2,6 @@ def upsert_scene_components(level_scenes):
     for scene in level_scenes:
         if scene.world is not None:
             scene['BlenderBackgroundShader'] = ambient_color_to_component(scene.world)
-        scene['BlenderShadowSettings'] = scene_shadows_to_component(scene)
-
-        if scene.eevee.use_bloom:
-            scene['BloomSettings'] = scene_bloom_to_component(scene)
-        elif 'BloomSettings' in scene:
-            del scene['BloomSettings']
 
         if scene.eevee.use_gtao: 
             scene['SSAOSettings'] = scene_ao_to_component(scene)
@@ -48,15 +42,6 @@ def ambient_color_to_component(world):
         component = f"( color: {colorRgba}, strength: {strength})"
         return component
     return None
-
-def scene_shadows_to_component(scene):
-    cascade_size = scene.eevee.shadow_cascade_size
-    component = f"(cascade_size: {cascade_size})"
-    return component
-
-def scene_bloom_to_component(scene):
-    component = f"BloomSettings(intensity: {scene.eevee.bloom_intensity})"
-    return component
 
 def scene_ao_to_component(scene):
     ssao = scene.eevee.use_gtao

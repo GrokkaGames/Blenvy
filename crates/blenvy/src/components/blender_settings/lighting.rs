@@ -30,7 +30,6 @@ pub(crate) fn plugin(app: &mut App) {
 /// The properties of a light's shadow , to enable controlling per light shadows from Blender
 pub struct BlenderLightShadows {
     pub enabled: bool,
-    pub buffer_bias: f32,
 }
 
 /// The background color as described by Blender's [background shader](https://docs.blender.org/manual/en/latest/render/shader_nodes/shader/background.html).
