@@ -20,6 +20,7 @@ def assets_to_fake_ron(list_like):
     result = []
     for item in list_like:
         result.append(f"(name: \"{item['name']}\", path: \"{item['path']}\")")
+    result.sort()
 
     return f"(assets: {result})".replace("'", '')
 
