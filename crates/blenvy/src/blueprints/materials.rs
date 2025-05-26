@@ -1,5 +1,5 @@
 use bevy::prelude::*;
-use tracing::{debug, info, warn};
+use tracing::{debug, warn};
 
 use crate::BlenvyConfig;
 

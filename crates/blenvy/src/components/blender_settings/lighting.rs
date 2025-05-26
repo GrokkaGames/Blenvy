@@ -2,7 +2,7 @@ use bevy::core_pipeline::tonemapping::Tonemapping;
 use bevy::pbr::DirectionalLightShadowMap;
 use bevy::prelude::*;
 use bevy::render::view::{ColorGrading, ColorGradingGlobal, ColorGradingSection};
-use tracing::info;
+use tracing::debug;
 
 use crate::GltfComponentsSet;
 

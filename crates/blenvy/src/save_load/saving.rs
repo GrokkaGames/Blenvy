@@ -4,7 +4,7 @@ use std::path::Path;
 
 use bevy::prelude::World;
 use bevy::{prelude::*, tasks::IoTaskPool};
-use tracing::info;
+use tracing::{debug, info};
 
 use crate::{BlenvyConfig, BlueprintInfo, Dynamic, FromBlueprint, RootEntity, SpawnBlueprint};
 

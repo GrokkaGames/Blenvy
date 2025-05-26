@@ -1,5 +1,5 @@
 use bevy::{math::Vec3A, prelude::*, render::primitives::Aabb};
-use tracing::info;
+use tracing::debug;
 
 use crate::{BlenvyConfig, BlueprintReadyForFinalizing, BlueprintReadyForPostProcess};
 

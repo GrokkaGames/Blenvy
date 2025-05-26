@@ -1,7 +1,7 @@
 use std::path::Path;
 
 use bevy::{gltf::Gltf, platform::collections::HashMap, prelude::*, scene::SceneInstance};
-use tracing::{debug, info, warn};
+use tracing::{debug, warn};
 
 use crate::{
     AnimationInfos, AssetLoadTracker, AssetToBlueprintInstancesMapper, BlueprintAnimationInfosLink,
