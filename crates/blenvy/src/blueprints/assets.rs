@@ -47,7 +47,7 @@ pub(crate) struct BlueprintAssetsLoaded;
 pub(crate) struct BlueprintAssetsNotLoaded;
 
 /// helper component, for tracking loaded assets's loading state, id , handle etc
-#[derive(Debug, Reflect)]
+#[derive(Debug, Reflect, Clone)]
 pub struct AssetLoadTracker {
     #[allow(dead_code)]
     pub name: String,
